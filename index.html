@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acelerador GESTOR — Programa de Acompanhamento em Grupo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '927709829216484');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Acelerador GESTOR',
+      content_category: 'Programa de Acompanhamento',
+      value: 998.00,
+      currency: 'BRL'
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=927709829216484&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E8510A;
+      --orange-dark:  #B83D06;
+      --orange-light: #FFF3EE;
+      --orange-tint:  #FFF8F5;
+      --orange-tint2: #F5F0EB;
+      --text-dark:    #1A1A1A;
+      --text-mid:     #444444;
+      --text-light:   #777777;
+      --border:       #E8E8E8;
+      --white:        #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== URGENCY BAR ===== */
+    .urgency-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #1A1A1A;
+      color: #fff;
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .urgency-bar strong { color: var(--orange); }
+
+    /* ===== LAYOUT ===== */
+    .container      { max-width: 860px;  margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+    section       { padding: 72px 0; }
+    section.alt   { background: var(--orange-tint); }
+    section.alt2  { background: var(--orange-tint2); }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-dark);
+    }
+    h1 { font-size: clamp(28px, 5vw, 46px); }
+    h2 { font-size: clamp(22px, 4vw, 34px); }
+    h3 { font-size: clamp(17px, 3vw, 21px); }
+    p  { color: var(--text-mid); line-height: 1.75; }
+
+    .tag {
+      display: inline-block;
+      background: var(--orange-light);
+      color: var(--orange);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 40px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      padding: 18px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn:hover   { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn.full    { display: block; width: 100%; }
+    .btn.large   { font-size: 18px; padding: 20px 48px; }
+    .btn.white   { background: #fff; color: var(--orange); }
+    .btn.white:hover { background: #f5f5f5; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--white);
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+    .hero .logo-wrap  { margin-bottom: 36px; }
+    .hero h1          { max-width: 680px; margin: 0 auto 20px; }
+    .hero .subtitle   { font-size: 18px; color: var(--text-mid); max-width: 560px; margin: 0 auto 36px; }
+    .price-pre        { font-size: 14px; color: var(--text-light); margin-bottom: 4px; }
+    .price-pre s      { color: #bbb; }
+    .price-block      { margin-bottom: 28px; }
+    .price-block strong {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1.1;
+    }
+    .price-block span { font-size: 13px; color: var(--text-light); }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+    }
+
+    /* ===== PROBLEM ===== */
+    .problem-wrap { max-width: 680px; margin: 0 auto; text-align: center; }
+    .problem-wrap h2 { margin-bottom: 24px; }
+    .problem-wrap p  { font-size: 17px; margin-bottom: 16px; }
+    .highlight-line {
+      background: var(--orange-light);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 24px;
+      margin: 28px 0;
+      text-align: left;
+    }
+    .highlight-line p {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /* ===== DIAGNOSTICO BOX ===== */
+    .diagnostico-box {
+      background: var(--orange-light);
+      border: 1px solid rgba(232,81,10,0.22);
+      border-left: 5px solid var(--orange);
+      border-radius: 0 16px 16px 0;
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+    .diagnostico-box h3   { color: var(--orange); margin-bottom: 14px; font-size: 18px; }
+    .diagnostico-box p    { font-size: 16px; color: var(--text-mid); margin-bottom: 10px; }
+    .diagnostico-box p:last-child { margin: 0; font-weight: 600; color: var(--text-dark); }
+
+    /* ===== MÉTODO ===== */
+    .metodo-intro   { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .metodo-intro h2 { margin-bottom: 16px; }
+    .inimigo-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 28px;
+      margin-bottom: 44px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--text-mid);
+    }
+    .inimigo-box strong { color: var(--text-dark); }
+    .metodo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 700px) { .metodo-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .metodo-grid { grid-template-columns: 1fr; } }
+    .metodo-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 22px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .metodo-card:hover {
+      box-shadow: 0 4px 20px rgba(232,81,10,0.10);
+      border-color: rgba(232,81,10,0.28);
+    }
+    .metodo-emoji  { font-size: 22px; margin-bottom: 10px; }
+    .metodo-letter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metodo-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .metodo-card p { font-size: 13px; color: var(--text-light); margin: 0; }
+
+    /* ===== INCLUÍDO ===== */
+    .incluso-list  { display: flex; flex-direction: column; gap: 20px; }
+    .incluso-item  {
+      display: flex;
+      gap: 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      align-items: flex-start;
+    }
+    .incluso-check {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .incluso-content h3 { font-size: 17px; margin-bottom: 8px; }
+    .incluso-content p  { font-size: 15px; color: var(--text-mid); }
+    .cursos-list { margin-top: 14px; display: flex; flex-direction: column; gap: 0; }
+    .curso-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-mid);
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .curso-row:last-child { border-bottom: none; }
+    .curso-price { color: #bbb; text-decoration: line-through; }
+    .total-box {
+      background: var(--orange-light);
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .incluso-nota {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    @media (max-width: 560px) {
+      .incluso-item { flex-direction: column; gap: 12px; }
+    }
+
+    /* ===== TRANSFORMAÇÃO ===== */
+    .transform-section h2 { text-align: center; }
+    .transform-section .h2-after {
+      text-align: center;
+      color: var(--orange);
+      margin-bottom: 44px;
+    }
+    .transform-table { width: 100%; border-collapse: collapse; }
+    .transform-table thead tr { background: var(--orange-tint2); }
+    .transform-table th {
+      padding: 14px 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: left;
+      letter-spacing: 0.3px;
+    }
+    .transform-table th:first-child { color: var(--text-light); border-radius: 12px 0 0 0; }
+    .transform-table th:last-child  { color: var(--orange);      border-radius: 0 12px 0 0; }
+    .transform-table td {
+      padding: 13px 20px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .transform-table td:first-child { color: var(--text-light); }
+    .transform-table td:last-child  { color: var(--text-dark); font-weight: 500; }
+    .transform-table tr:last-child td { border-bottom: none; }
+    .transform-table tr:nth-child(even) td { background: rgba(255,248,245,0.6); }
+
+    /* ===== PARA QUEM ===== */
+    .para-quem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    @media (max-width: 600px) { .para-quem-grid { grid-template-columns: 1fr; } }
+    .pq-box { border-radius: 16px; padding: 28px; }
+    .pq-box.sim { background: var(--white);  border: 1px solid var(--border); }
+    .pq-box.nao { background: #FFF5F5; border: 1px solid #FFCDD2; }
+    .pq-box h3  { font-size: 15px; margin-bottom: 16px; }
+    .pq-box.sim h3 { color: var(--orange); }
+    .pq-box.nao h3 { color: #D32F2F; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-mid);
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .check-list .mark { flex-shrink: 0; margin-top: 1px; }
+
+    /* ===== PREÇO ===== */
+    .preco-wrap { text-align: center; }
+    .preco-wrap h2   { margin-bottom: 12px; }
+    .preco-wrap .sub { font-size: 17px; color: var(--text-mid); max-width: 540px; margin: 0 auto 44px; }
+    .preco-box {
+      max-width: 460px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 2px solid var(--orange);
+      border-radius: 24px;
+      padding: 44px 40px;
+      box-shadow: 0 8px 40px rgba(232,81,10,0.12);
+    }
+    .preco-box h3      { font-size: 20px; margin-bottom: 28px; }
+    .preco-de          { font-size: 14px; color: #bbb; text-decoration: line-through; margin-bottom: 4px; }
+    .preco-valor       {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .preco-parcela     { font-size: 13px; color: var(--text-light); margin-bottom: 32px; }
+    .garantias-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .garantia-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text-light); }
+    .preco-timer   { margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--orange-dark); }
+    .preco-escassez { margin-top: 10px; font-size: 13px; color: #999; }
+
+    /* ===== FERNANDO ===== */
+    .fernando-wrap {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    @media (max-width: 640px) { .fernando-wrap { flex-direction: column; } }
+    .fernando-photo {
+      flex-shrink: 0;
+      width: 200px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid var(--orange);
+    }
+    .fernando-photo img { width: 100%; height: auto; display: block; }
+    .fernando-content h2 { margin-bottom: 16px; }
+    .fernando-content p  { font-size: 16px; margin-bottom: 14px; }
+    .cred-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+    .cred-badge {
+      background: var(--orange-tint2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+
+    /* ===== FAQ ===== */
+    .faq-title { text-align: center; margin-bottom: 48px; }
+    .faq-item  { border-bottom: 1px solid var(--border); }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q .arr { flex-shrink: 0; color: var(--orange); font-size: 18px; transition: transform 0.2s; }
+    .faq-q.open .arr { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.2s;
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+    .faq-a.open { max-height: 400px; padding-bottom: 20px; }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      background: var(--orange);
+      color: white;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .final-cta h2 {
+      color: white;
+      font-size: clamp(22px, 4vw, 36px);
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .final-cta .sub  { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 480px; margin: 0 auto 36px; }
+    .final-cta .meta { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.65); }
+    .final-tagline   { margin-top: 28px; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: rgba(255,255,255,0.9); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1A1A1A;
+      color: #666;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider { height: 1px; background: var(--border); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      section { padding: 52px 0; }
+      .hero   { padding: 52px 0 40px; }
+      .preco-box { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BARRA DE URGÊNCIA -->
+<div class="urgency-bar">
+  ⏱ Oferta disponível por tempo limitado. Encerra em <strong id="urgency-timer">24:00:00</strong>
+</div>
+
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+
+    <div class="logo-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="210" height="53">
+        <rect x="0" y="8" width="64" height="64" rx="14" fill="#EDE9E4"/>
+        <polyline points="16,28 32,18 48,28" fill="none" stroke="#E8510A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="16,38 32,28 48,38" fill="none" stroke="#E8510A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+        <polyline points="16,48 32,38 48,48" fill="none" stroke="#E8510A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.30"/>
+        <circle cx="32" cy="58" r="3.5" fill="#E8510A"/>
+        <text x="80" y="31" font-family="Inter, sans-serif" font-weight="500" font-size="9" fill="#AAAAAA" letter-spacing="2.5">ACELERADOR</text>
+        <text x="79" y="58" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="34" fill="#1E1E1E" letter-spacing="-0.5"><tspan fill="#E8510A">G</tspan>ESTOR</text>
+      </svg>
+    </div>
+
+    <div class="tag">Vagas Limitadas</div>
+
+    <h1>Você saiu do Workshop sabendo mais.<br>Agora é hora de aplicar no projeto real.</h1>
+
+    <p class="subtitle">O Acelerador GESTOR é o programa em grupo onde você pega tudo que aprendeu e coloca pra funcionar no seu cronograma, no seu projeto de verdade.</p>
+
+    <p class="price-pre"><s>De R$ 1.500</s></p>
+    <div class="price-block">
+      <strong>R$ 998</strong>
+      <span>ou parcelado em até 12x no cartão</span>
+    </div>
+
+    <a href="#oferta" onclick="fbq('track','AddToCart',{value:998.00,currency:'BRL',content_name:'Acelerador GESTOR'})" class="btn large">Quero entrar no Acelerador GESTOR</a>
+
+    <div class="hero-badges">
+      <div class="hero-badge">🗓 6 meses de acompanhamento</div>
+      <div class="hero-badge">📁 Aplicado no seu projeto real</div>
+      <div class="hero-badge">👥 Grupo fechado · Encontros quinzenais</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ==================== PROBLEMA ==================== -->
+<section class="alt">
+  <div class="container">
+    <div class="problem-wrap">
+      <h2>Fazer o Workshop foi o primeiro passo.<br>Mas o que acontece no dia seguinte?</h2>
+      <p>Você volta pro trabalho. O cronograma continua do mesmo jeito. A reunião de acompanhamento é amanhã e você improvisa igual antes. A liderança questiona e você não tem o dado na ponta da língua.</p>
+      <p>Não é falta de conhecimento. É falta de acompanhamento enquanto você aplica.</p>
+      <div class="highlight-line">
+        <p>Curso ensina. Acelerador transforma de forma ativa.</p>
+      </div>
+      <p>A diferença é que aqui você não estuda um projeto fictício. Você traz o seu, e a gente trabalha nele junto.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== O QUE É ==================== -->
+<section>
+  <div class="container">
+
+    <h2 style="margin-bottom:20px;">Um programa de 6 meses onde o seu projeto real é o material didático</h2>
+    <p style="font-size:17px;">O Acelerador GESTOR funciona em grupo fechado com vagas limitadas. Cada encontro quinzenal de 90 minutos analisa casos reais trazidos pelos participantes e todos aprendem com o projeto de cada um.</p>
+
+    <div class="diagnostico-box">
+      <h3>📋 Antes do primeiro encontro, você já sabe onde está o problema.</h3>
+      <p>Fernando analisa o seu cronograma real, mapeia os riscos, as falhas de estrutura e os pontos cegos e entrega um relatório individual só seu.</p>
+      <p>Você entra no grupo sabendo exatamente onde está o problema. Não fica descobrindo no meio do caminho.</p>
+      <p>Esse item está incluído no Acelerador. E sozinho já justifica o investimento.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== MÉTODO GESTOR ==================== -->
+<section class="alt">
+  <div class="container">
+
+    <div class="metodo-intro">
+      <div class="tag">Método GESTOR</div>
+      <h2>Os 6 passos que você vai aplicar no seu projeto</h2>
+    </div>
+
+    <div class="inimigo-box">
+      Mais um curso de MS Project não resolve. <strong>O problema nunca foi a ferramenta.</strong> Foi não ter um método que começa do diagnóstico real e avança passo a passo até você virar referência técnica. É isso que o Método GESTOR faz.
+    </div>
+
+    <div class="metodo-grid">
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">🔍</div>
+        <div class="metodo-letter">G</div>
+        <div class="metodo-title">Gerar o diagnóstico real</div>
+        <p>Auditoria individual do seu cronograma antes de tudo. Você começa sabendo onde estão os problemas, não chutando.</p>
+      </div>
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">🏗️</div>
+        <div class="metodo-letter">E</div>
+        <div class="metodo-title">Estruturar com base técnica</div>
+        <p>EAP conectada ao contrato, durações com lógica de produtividade, linha de base definida. O cronograma vira instrumento de decisão.</p>
+      </div>
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">📊</div>
+        <div class="metodo-letter">S</div>
+        <div class="metodo-title">Sistematizar o controle</div>
+        <p>Processo de atualização e medição implantado no projeto real. Você sai do modo reativo e entra no modo preditivo.</p>
+      </div>
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">🎯</div>
+        <div class="metodo-letter">T</div>
+        <div class="metodo-title">Traduzir dados em decisão</div>
+        <p>Relatórios claros e reuniões conduzidas com segurança. Você responde qualquer questionamento da liderança sem travar.</p>
+      </div>
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">🤖</div>
+        <div class="metodo-letter">O</div>
+        <div class="metodo-title">Operar com IA</div>
+        <p>Usa o que aprendeu no Workshop para acelerar o planejamento e o controle. A IA não substitui o método. Ela potencializa.</p>
+      </div>
+
+      <div class="metodo-card">
+        <div class="metodo-emoji">🚀</div>
+        <div class="metodo-letter">R</div>
+        <div class="metodo-title">Revelar seu potencial</div>
+        <p>O foco sai do projeto e vai para você. Você encerra o Acelerador como o profissional que a empresa chama quando o projeto é crítico.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== INCLUÍDO ==================== -->
+<section>
+  <div class="container">
+
+    <h2 style="text-align:center;margin-bottom:48px;">Tudo o que você recebe ao entrar agora</h2>
+
+    <div class="incluso-list">
+
+      <div class="incluso-item">
+        <div class="incluso-check">✓</div>
+        <div class="incluso-content">
+          <h3>Diagnóstico GESTOR</h3>
+          <p>Auditoria individual do seu cronograma real, entregue antes do 1º encontro. Fernando analisa o seu arquivo e entrega um relatório com os riscos, falhas de estrutura e pontos cegos do seu projeto. Esse item sozinho já justifica o investimento.</p>
+        </div>
+      </div>
+
+      <div class="incluso-item">
+        <div class="incluso-check">✓</div>
+        <div class="incluso-content">
+          <h3>12 encontros ao vivo quinzenais</h3>
+          <p>90 minutos por sessão. A cada encontro, um ou mais participantes trazem o projeto para análise ao vivo com Fernando. Todo mundo aprende com o caso de cada um.</p>
+        </div>
+      </div>
+
+      <div class="incluso-item">
+        <div class="incluso-check">✓</div>
+        <div class="incluso-content">
+          <h3>Grupo exclusivo com suporte contínuo</h3>
+          <p>Você trava num ponto no meio da semana, posta no grupo e recebe resposta. O acompanhamento não para entre os encontros.</p>
+        </div>
+      </div>
+
+      <div class="incluso-item">
+        <div class="incluso-check">✓</div>
+        <div class="incluso-content">
+          <h3>Biblioteca de suporte completa</h3>
+          <p>Acesso aos 3 cursos completos para consultar a qualquer momento ao longo da jornada:</p>
+          <div class="cursos-list">
+            <div class="curso-row">
+              <span>MS Project com IA</span>
+              <span class="curso-price">R$ 297</span>
+            </div>
+            <div class="curso-row">
+              <span>Formação MS Project para Engenheiros</span>
+              <span class="curso-price">R$ 197</span>
+            </div>
+            <div class="curso-row">
+              <span>O Código da Medição Destravada</span>
+              <span class="curso-price">R$ 215</span>
+            </div>
+          </div>
+          <div class="total-box">
+            Só a biblioteca de suporte somaria R$ 709 se você fosse comprar separado. Aqui está incluída.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="incluso-nota">Os cursos não são o produto. São o suporte de conhecimento. O produto é o acompanhamento.</p>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="#oferta" onclick="fbq('track','AddToCart',{value:998.00,currency:'BRL',content_name:'Acelerador GESTOR'})" class="btn">Quero entrar no Acelerador GESTOR</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== TRANSFORMAÇÃO ==================== -->
+<section class="alt transform-section">
+  <div class="container">
+
+    <h2>Onde você está agora.</h2>
+    <h2 class="h2-after">Onde você vai estar em 6 meses.</h2>
+
+    <div style="overflow-x:auto;">
+      <table class="transform-table">
+        <thead>
+          <tr>
+            <th>Antes do Acelerador</th>
+            <th>Depois do Acelerador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cronograma que ninguém confia</td>
+            <td>Cronograma que a liderança usa para decidir</td>
+          </tr>
+          <tr>
+            <td>Improvisa nas reuniões de acompanhamento</td>
+            <td>Conduz reuniões com dados e segurança</td>
+          </tr>
+          <tr>
+            <td>Descobre problemas quando já é tarde</td>
+            <td>Antecipa desvios antes que virem crise</td>
+          </tr>
+          <tr>
+            <td>Usa o MS Project só para registrar tarefas</td>
+            <td>Usa o MS Project para tomar decisões</td>
+          </tr>
+          <tr>
+            <td>Fica inseguro quando a liderança questiona</td>
+            <td>Responde qualquer pergunta com autoridade</td>
+          </tr>
+          <tr>
+            <td>Passa despercebido pela liderança</td>
+            <td>A referência que a empresa chama quando o projeto é crítico</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== PARA QUEM É ==================== -->
+<section>
+  <div class="container">
+
+    <h2 style="text-align:center;margin-bottom:8px;">O Acelerador GESTOR é para você?</h2>
+
+    <div class="para-quem-grid">
+      <div class="pq-box sim">
+        <h3>É para você se...</h3>
+        <ul class="check-list">
+          <li><span class="mark">✅</span><span>Você é engenheiro, coordenador ou profissional de projetos e já usa o MS Project no trabalho</span></li>
+          <li><span class="mark">✅</span><span>Você fez cursos mas ainda sente que o que aprendeu não muda nada na prática</span></li>
+          <li><span class="mark">✅</span><span>Você quer ser levado a sério nas reuniões, com dados, não com achismo</span></li>
+          <li><span class="mark">✅</span><span>Você quer antecipar problemas em vez de apagar incêndio toda semana</span></li>
+          <li><span class="mark">✅</span><span>Você quer ser o profissional que a empresa chama quando o projeto é crítico</span></li>
+        </ul>
+      </div>
+      <div class="pq-box nao">
+        <h3>Não é para você se...</h3>
+        <ul class="check-list">
+          <li><span class="mark">❌</span><span>Você nunca abriu o MS Project na vida (comece pelos cursos)</span></li>
+          <li><span class="mark">❌</span><span>Você quer só mais um certificado para o currículo</span></li>
+          <li><span class="mark">❌</span><span>Você não tem um projeto real para trazer para as sessões</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== PREÇO ==================== -->
+<section class="alt" id="oferta">
+  <div class="container">
+    <div class="preco-wrap">
+
+      <h2>Sua decisão precisa ser tomada agora</h2>
+      <p class="sub">Esta oferta foi aberta durante o Workshop e fecha em 24 horas. Depois disso, o preço volta para R$ 1.500 e a próxima turma só abre no segundo semestre.</p>
+
+      <div class="preco-box">
+        <h3>🎯 Acelerador GESTOR</h3>
+        <p class="preco-de">De R$ 1.500</p>
+        <p class="preco-valor">R$ 998</p>
+        <p class="preco-parcela">ou parcelado em até 12x no cartão</p>
+
+        <a href="https://pay.hotmart.com/L96686872S?off=yvf43ker&checkoutMode=10" target="_blank" onclick="fbq('track','InitiateCheckout',{value:998.00,currency:'BRL',content_name:'Acelerador GESTOR'})" class="btn full large">QUERO ENTRAR NO ACELERADOR GESTOR</a>
+
+        <div class="garantias-row">
+          <div class="garantia-item">🔒 Pagamento seguro via Hotmart</div>
+          <div class="garantia-item">🔄 Garantia de 7 dias</div>
+        </div>
+
+        <p class="preco-timer">⏱ Oferta encerra em: <span id="preco-timer">24:00:00</span></p>
+        <p class="preco-escassez">Vagas limitadas. Quando fechar, acabou.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SOBRE FERNANDO ==================== -->
+<section>
+  <div class="container">
+    <div class="fernando-wrap">
+
+      <div class="fernando-photo">
+        <img src="Design/Fotos/Foto_fernando.webp" alt="Fernando Rocha">
+      </div>
+
+      <div class="fernando-content">
+        <h2>Quem vai conduzir sua jornada</h2>
+        <p>Fernando é especialista em MS Project e gestão de projetos com mais de 10 anos de experiência aplicada. Criou o Método GESTOR para resolver o gap que todo profissional sente: saber a ferramenta, mas não conseguir transformar isso em controle real de projeto.</p>
+        <p>Nos últimos anos formou mais de 5.000 profissionais de engenharia, construção civil e indústria através dos seus cursos e do Workshop MS Project com IA que você acabou de assistir.</p>
+        <p>O Acelerador GESTOR é onde Fernando acompanha de perto, projeto por projeto, sessão por sessão.</p>
+        <div class="cred-row">
+          <div class="cred-badge">PMP Certificado</div>
+          <div class="cred-badge">TKP Certificado</div>
+          <div class="cred-badge">MBA em Planejamento de Obras</div>
+          <div class="cred-badge">10 anos de experiência</div>
+          <div class="cred-badge">5.000+ profissionais formados</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FAQ ==================== -->
+<section class="alt">
+  <div class="container">
+
+    <h2 class="faq-title">Perguntas que você provavelmente está fazendo agora</h2>
+
+    <div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Já sou aluno de um curso do Fernando. Tenho desconto?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Ser aluno é exatamente o perfil certo para o Acelerador. Você já tem a base, já conhece a ferramenta e já sabe que só o conhecimento não basta. O Acelerador é o próximo passo: aplicação real, com acompanhamento ao vivo, no seu projeto. Não há desconto adicional. O preço de lançamento de R$ 998 já é o valor reduzido, disponível apenas nas próximas 24 horas.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Funciona para quem está na execução e não no planejamento?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Sim. O Método GESTOR foi desenhado para quem gerencia projetos em qualquer fase: planejamento, execução ou controle. O que importa é que você tenha um projeto real para trazer para as sessões.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E se eu não puder participar de algum encontro ao vivo?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Todos os encontros são gravados e ficam disponíveis por 12 meses. Você acompanha no seu ritmo e o grupo de suporte garante que você não perde o fio da jornada.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Já fiz cursos de MS Project e não mudou nada. Por que o Acelerador seria diferente?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Porque aqui você não estuda um exemplo fictício. Você traz o seu projeto real e trabalha nele ao vivo, com feedback direto de Fernando. A diferença entre curso e acelerador é essa: um ensina, o outro transforma.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O grupo não vai ser muito genérico para o meu setor?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Não. Com vagas limitadas por turma, cada sessão consegue ir fundo no contexto de cada participante. E profissionais de setores diferentes trazem perspectivas que enriquecem o aprendizado de todos.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          E se eu não gostar?
+          <span class="arr">▼</span>
+        </button>
+        <div class="faq-a">
+          Você tem 7 dias de garantia. Se por qualquer motivo sentir que o Acelerador não é para você, peça o reembolso sem burocracia.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FINAL CTA ==================== -->
+<section class="final-cta">
+  <h2>Você já sabe o que fazer.<br>A questão é: vai fazer agora ou vai esperar mais 6 meses?</h2>
+  <p class="sub">A próxima turma abre no segundo semestre. Esta oferta fecha em <span id="final-timer">24:00:00</span>.</p>
+  <a href="#oferta" onclick="fbq('track','AddToCart',{value:998.00,currency:'BRL',content_name:'Acelerador GESTOR'})" class="btn white large">QUERO ENTRAR NO ACELERADOR GESTOR POR R$ 998</a>
+  <p class="meta">Vagas limitadas · 6 meses · seu projeto real</p>
+  <p class="final-tagline">Projeto que funciona. Carreira que avança.</p>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 HTT Treinamentos · Fernando Rocha · Todos os direitos reservados</p>
+  <p>Hotmart · Pagamento seguro</p>
+</footer>
+
+
+<script>
+  /* ===== FAQ ===== */
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(b => b.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  /* ===== COUNTDOWN 24H ===== */
+  (function () {
+    const KEY      = 'gestor_offer_expiry';
+    const DURATION = 24 * 60 * 60 * 1000; // 24 horas em ms
+
+    // Lê ou cria o timestamp de expiração
+    let expiry = parseInt(localStorage.getItem(KEY), 10);
+    if (!expiry || isNaN(expiry)) {
+      expiry = Date.now() + DURATION;
+      localStorage.setItem(KEY, expiry);
+    }
+
+    const ids = ['urgency-timer', 'preco-timer', 'final-timer'];
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function update() {
+      const remaining = expiry - Date.now();
+
+      if (remaining <= 0) {
+        ids.forEach(function(id) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00:00:00';
+        });
+        return;
+      }
+
+      const totalSec = Math.floor(remaining / 1000);
+      const h = Math.floor(totalSec / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+      const s = totalSec % 60;
+      const display = pad(h) + ':' + pad(m) + ':' + pad(s);
+
+      ids.forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = display;
+      });
+
+      setTimeout(update, 1000);
+    }
+
+    update();
+  })();
+</script>
+
+</body>
+</html>
